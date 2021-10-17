@@ -2,7 +2,10 @@ package com.crazicrafter1.siege.game;
 
 import com.crazicrafter1.siege.Main;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.World;
+import org.bukkit.WorldCreator;
+import org.bukkit.entity.Player;
 
 public class WorldManager {
 
@@ -11,9 +14,10 @@ public class WorldManager {
 
     public static void onEnable() {
         helmsDeep = Bukkit.getWorld("helms_deep");
+        //helmsDeep.setAutoSave(false);
     }
 
-    /*
+
     public static void reset() {
         for (Player p : Bukkit.getServer().getOnlinePlayers()) {
             p.kickPlayer(ChatColor.DARK_GREEN + "World is resetting ...\nRejoin in a few seconds");
@@ -22,12 +26,8 @@ public class WorldManager {
         //Bukkit.shutdown();
         //Bukkit.getServer().
 
-        helmsDeep.setAutoSave(false);
         //.unloadWorld(helmsDeep, false);
-        Bukkit.createWorld(new WorldCreator("helms_deep").)
+        helmsDeep = Bukkit.createWorld(new WorldCreator("helms_deep"));
 
     }
-
-     */
-
 }

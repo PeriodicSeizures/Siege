@@ -58,8 +58,8 @@ public class Knight extends Team implements Defender {
 
     private long lastArrow = System.currentTimeMillis();
     private long lastFence = System.currentTimeMillis();
-    public static final long arrowDelay = 6000;
-    public static final long fenceDelay = 10000;
+    public static final long ARROW_DELAY = 6000;
+    public static final long FENCE_DELAY = 10000;
 
     private static ItemStack barricade = new ItemBuilder(Material.OAK_FENCE).name("&bBarricade").toItem();
 
@@ -67,7 +67,7 @@ public class Knight extends Team implements Defender {
     public void passiveItems() {
         PlayerInventory inv = getPlayer().getInventory();
 
-        if (System.currentTimeMillis() - arrowDelay >= lastArrow) {
+        if (System.currentTimeMillis() - ARROW_DELAY >= lastArrow) {
             ItemStack item = inv.getItem(8);
             if (item != null && item.getType() != Material.AIR) {
                 int a = inv.getItem(8).getAmount();
@@ -80,7 +80,7 @@ public class Knight extends Team implements Defender {
         }
 
         // FENCES
-        if (System.currentTimeMillis() - fenceDelay >= lastFence) {
+        if (System.currentTimeMillis() - FENCE_DELAY >= lastFence) {
             ItemStack item = inv.getItem(2);
             if (item != null && item.getType() != Material.AIR) {
                 int a = inv.getItem(2).getAmount();

@@ -1,10 +1,12 @@
 package com.crazicrafter1.siege.game;
 
 import com.crazicrafter1.siege.game.team.Team;
+import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
 public class TempPlayer {
+
 
     private UUID uuid;
     private Team.Type type;

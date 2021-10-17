@@ -16,11 +16,11 @@ import java.util.HashMap;
 class KitMenuData {
 
 
-    static ItemStack d1 = new ItemBuilder(Material.BOW).name("&b&lMarksman").lore(new String[] {"&7 - One arrow every &8" + String.format("%.1f", Marksman.arrowDelay/1000.0) + "&7s",
+    static ItemStack d1 = new ItemBuilder(Material.BOW).name("&b&lMarksman").lore(new String[] {"&7 - One arrow every &8" + String.format("%.1f", Marksman.ARROW_DELAY /1000.0) + "&7s",
             "&7 - Chainmail armor"}, true).toItem();
 
-    static ItemStack d2 = new ItemBuilder(Material.IRON_SWORD).name("&3&lKnight").lore(new String[] {  "&7 - One arrow every &8" + String.format("%.1f", Knight.arrowDelay/1000.0) + "&7s",
-            "&7 - One barricade every &8" + String.format("%.1f", Knight.fenceDelay/1000.0) + "&7s",
+    static ItemStack d2 = new ItemBuilder(Material.IRON_SWORD).name("&3&lKnight").lore(new String[] {  "&7 - One arrow every &8" + String.format("%.1f", Knight.ARROW_DELAY /1000.0) + "&7s",
+            "&7 - One barricade every &8" + String.format("%.1f", Knight.FENCE_DELAY /1000.0) + "&7s",
             "&7 - Iron armor"}, true).hideFlags(ItemFlag.HIDE_ATTRIBUTES).toItem();
 
     static ItemStack i1 = new ItemBuilder(Material.STONE_SWORD).name("&4&lUndead Ghoul").lore(new String[] {  "&7 - Permanent speed",

@@ -65,13 +65,13 @@ public class Marksman extends Team implements Defender {
     }
 
     private long lastArrow = System.currentTimeMillis();
-    public static final int arrowDelay = 3000;
+    public static final int ARROW_DELAY = 3000;
 
     @Override
     public void passiveItems() {
         PlayerInventory inv = getPlayer().getInventory();
 
-        if (System.currentTimeMillis() - arrowDelay >= lastArrow) {
+        if (System.currentTimeMillis() - ARROW_DELAY >= lastArrow) {
             ItemStack item = inv.getItem(8);
             if (item != null && item.getType() != Material.AIR) {
                 int a = inv.getItem(8).getAmount();

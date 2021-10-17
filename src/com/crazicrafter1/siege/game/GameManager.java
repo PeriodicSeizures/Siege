@@ -64,7 +64,6 @@ public class GameManager {
 
         teams.put(Team.Type.DEFENDER, new HashMap<>());
         teams.put(Team.Type.INVADER, new HashMap<>());
-
     }
 
 

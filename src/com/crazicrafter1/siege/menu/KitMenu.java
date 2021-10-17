@@ -15,6 +15,11 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.HashMap;
 import java.util.UUID;
 
+/**
+ * This class is basically the equivalent of AbstractMenu
+ * but way more primitive, prone to errors
+ * and everything to change kits is embedded
+ */
 public class KitMenu {
 
     public static HashMap<UUID, KitMenu> menus = new HashMap<>();

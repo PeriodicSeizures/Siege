@@ -18,8 +18,8 @@ public abstract class Team {
     }
 
     public enum Kit {
-        UNDEAD_GHOUL, ZOMBIE, NEMESIS(),
-        MARKSMAN, KNIGHT
+        UNDEAD_GHOUL, ZOMBIE, NEMESIS,
+        MARKSMAN, KNIGHT, BOMBER
     }
 
     private UUID uuid;
