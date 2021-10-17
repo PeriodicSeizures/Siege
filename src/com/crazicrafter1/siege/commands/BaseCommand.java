@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 
 public abstract class BaseCommand implements CommandExecutor {
 
-    protected static Main plugin = Main.getInstance();
+    protected static Main plugin = Main.get();
 
     public BaseCommand(String name) {
         plugin.getCommand(name).setExecutor(this);

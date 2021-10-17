@@ -1,10 +1,7 @@
 package com.crazicrafter1.siege.commands;
 
-import com.crazicrafter1.siege.Util;
 import com.crazicrafter1.siege.game.GameManager;
 import com.crazicrafter1.siege.Main;
-import com.crazicrafter1.siege.game.TeamAssigner;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
@@ -22,7 +19,7 @@ public class CmdSiege extends BaseCommand {
         switch (args[0].toLowerCase()) {
 
             case "reload":
-                Main.getInstance().reloadConfig();
+                Main.get().reloadConfig();
                 return true;
             case "game": {
 
@@ -32,7 +29,7 @@ public class CmdSiege extends BaseCommand {
 
                     if (args.length == 3) {
                         try {
-                            GameManager.preStartGame(Util.safeToInt(args[2]));
+                            GameManager.preStartGame(Integer.parseInt(args[2]));
                             return true;
                             //return feedback(sender, "");
                         } catch (Exception e) { return error(sender, "Input a valid time as integer"); }
@@ -49,7 +46,7 @@ public class CmdSiege extends BaseCommand {
                 if (args[1].equalsIgnoreCase("time")) {
                     if (args.length == 3) {
                         try {
-                            long t = Util.safeToFloat(args[2]).longValue();
+                            long t = Long.parseLong(args[2]); // was parse float? with longvalue
                             GameManager.gameStart = System.currentTimeMillis() - t*60*1000;
                             return true;
                         } catch (Exception e) {return error(sender, "Enter time as a decimal in minutes.");}

@@ -1,6 +1,6 @@
 package com.crazicrafter1.siege.game.team.defender;
 
-import com.crazicrafter1.siege.util.ItemBuilder;
+import com.crazicrafter1.crutils.ItemBuilder;
 import com.crazicrafter1.siege.util.Util;
 import com.crazicrafter1.siege.game.team.Team;
 import org.bukkit.Material;
@@ -23,12 +23,12 @@ public class Knight extends Team implements Defender {
         super(uuid, Type.DEFENDER, Kit.KNIGHT, "", 0);
     }
 
-    private static ItemStack bow =      ItemBuilder.builder(Material.BOW).unbreakable().enchant(Enchantment.ARROW_DAMAGE, 1).toItem();
-    private static ItemStack sword =    ItemBuilder.builder(Material.IRON_SWORD).hideFlags(ItemFlag.HIDE_ATTRIBUTES).fast().unbreakable().enchant(Enchantment.DAMAGE_ALL, 2).toItem(); //Util.item(Material.IRON_SWORD);
-    private static ItemStack helm =     ItemBuilder.builder(Material.IRON_HELMET).unbreakable().enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1).toItem();
-    private static ItemStack chest =    ItemBuilder.builder(Material.IRON_CHESTPLATE).unbreakable().enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1).toItem();
-    private static ItemStack legs =     ItemBuilder.builder(Material.IRON_LEGGINGS).unbreakable().enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1).toItem();
-    private static ItemStack boots =    ItemBuilder.builder(Material.IRON_BOOTS).unbreakable().enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1).toItem();
+    private static ItemStack bow =      new ItemBuilder(Material.BOW).unbreakable().enchant(Enchantment.ARROW_DAMAGE, 1).toItem();
+    private static ItemStack sword =    new ItemBuilder(Material.IRON_SWORD).hideFlags(ItemFlag.HIDE_ATTRIBUTES).unbreakable().enchant(Enchantment.DAMAGE_ALL, 2).toItem(); //Util.item(Material.IRON_SWORD);
+    private static ItemStack helm =     new ItemBuilder(Material.IRON_HELMET).unbreakable().enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1).toItem();
+    private static ItemStack chest =    new ItemBuilder(Material.IRON_CHESTPLATE).unbreakable().enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1).toItem();
+    private static ItemStack legs =     new ItemBuilder(Material.IRON_LEGGINGS).unbreakable().enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1).toItem();
+    private static ItemStack boots =    new ItemBuilder(Material.IRON_BOOTS).unbreakable().enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1).toItem();
 
     @Override
     public void reset() {
@@ -61,7 +61,7 @@ public class Knight extends Team implements Defender {
     public static final long arrowDelay = 6000;
     public static final long fenceDelay = 10000;
 
-    private static ItemStack barricade = ItemBuilder.builder(Material.OAK_FENCE).name("&bBarricade").toItem();
+    private static ItemStack barricade = new ItemBuilder(Material.OAK_FENCE).name("&bBarricade").toItem();
 
     @Override
     public void passiveItems() {

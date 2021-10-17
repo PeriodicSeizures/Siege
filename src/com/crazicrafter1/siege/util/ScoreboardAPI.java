@@ -8,7 +8,7 @@ import org.bukkit.scoreboard.*;
 public class ScoreboardAPI {
 
     public static void setSideBar(Player player, String title, String[] messages) {
-        Bukkit.getScheduler().runTask(Main.getInstance(), new Runnable() {
+        Bukkit.getScheduler().runTask(Main.get(), new Runnable() {
             @Override
             public void run() {
                 Scoreboard board = Bukkit.getScoreboardManager().getNewScoreboard();

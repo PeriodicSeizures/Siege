@@ -26,7 +26,7 @@ public class SpawnManager {
 
         //int health = king.getHealth();
 
-        File file = Paths.get(Main.getInstance().getDataFolder() + "\\spawns.csv").toFile();
+        File file = Paths.get(Main.get().getDataFolder() + "\\spawns.csv").toFile();
 
         if (file.exists()) file.delete();
 
@@ -48,7 +48,7 @@ public class SpawnManager {
     public static void load() {
         try {
 
-            File file = Paths.get(Main.getInstance().getDataFolder() + "\\spawns.csv").toFile();
+            File file = Paths.get(Main.get().getDataFolder() + "\\spawns.csv").toFile();
 
             if (file.exists()) {
                 BufferedReader reader = new BufferedReader(new FileReader(file));

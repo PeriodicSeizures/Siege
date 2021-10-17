@@ -1,7 +1,6 @@
 package com.crazicrafter1.siege;
 
 import com.crazicrafter1.siege.game.BombManager;
-import com.crazicrafter1.siege.game.GameManager;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -26,7 +25,7 @@ public class BombCarrier {
     }
 
     public BombCarrier(UUID uuid) {
-        this.player = Main.getInstance().getServer().getPlayer(uuid);
+        this.player = Main.get().getServer().getPlayer(uuid);
 
 
 

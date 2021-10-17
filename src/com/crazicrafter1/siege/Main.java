@@ -10,11 +10,18 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 
-    private static Main inst;
+    public final String prefix = ChatColor.translateAlternateColorCodes('&', "&f[&6&lSiege&r&f] ");
+
+    private static Main instance;
+    public static Main get() {
+        return instance;
+    }
+
+    //public boolean debug;
 
     @Override
     public void onEnable() {
-        inst = this;
+        instance = this;
 
         this.saveDefaultConfig();
 
@@ -57,8 +64,27 @@ public class Main extends JavaPlugin {
         GameManager.onDisable();
     }
 
-    public static Main getInstance() {
-        return inst;
+
+    public void info(String s) {
+        Bukkit.getConsoleSender().sendMessage(prefix + ChatColor.DARK_GRAY + s);
     }
+
+    public void important(String s) {
+        Bukkit.getConsoleSender().sendMessage(prefix + ChatColor.DARK_PURPLE + s);
+    }
+
+    public void error(String s) {
+        Bukkit.getConsoleSender().sendMessage(prefix + ChatColor.RED + s);
+    }
+
+    //public void debug(String s) {
+    //    if (data.debug)
+    //        Bukkit.getConsoleSender().sendMessage(prefix + ChatColor.GOLD + s);
+    //}
+
+    //public void debug(Exception e) {
+    //    if (data.debug)
+    //        e.printStackTrace();
+    //}
 
 }

@@ -1,6 +1,6 @@
 package com.crazicrafter1.siege.game.team.invader;
 
-import com.crazicrafter1.siege.util.ItemBuilder;
+import com.crazicrafter1.crutils.ItemBuilder;
 import com.crazicrafter1.siege.util.Util;
 import com.crazicrafter1.siege.game.team.Team;
 import org.bukkit.Color;
@@ -23,11 +23,11 @@ public class Zombie extends Team implements Invader {
         super(uuid, Type.INVADER, Kit.ZOMBIE, "Endure", 20*9);
     }
 
-    private static ItemStack sword1 =   ItemBuilder.builder(Material.STONE_AXE).hideFlags(ItemFlag.HIDE_ATTRIBUTES).unbreakable().fast().toItem(); //Util.item(Material.WOODEN_SWORD);
-    private static ItemStack helm1 =    ItemBuilder.builder(Material.ZOMBIE_HEAD).toItem();
-    private static ItemStack chest1 =   ItemBuilder.builder(Material.LEATHER_CHESTPLATE).unbreakable().dye(Color.GREEN).toItem();
-    private static ItemStack legs1 =    ItemBuilder.builder(Material.LEATHER_LEGGINGS).unbreakable().dye(Color.GREEN).toItem();
-    private static ItemStack boots1 =   ItemBuilder.builder(Material.LEATHER_BOOTS).unbreakable().dye(Color.GREEN).toItem();
+    private static ItemStack sword1 =   new ItemBuilder(Material.STONE_AXE).hideFlags(ItemFlag.HIDE_ATTRIBUTES).unbreakable().toItem(); //Util.item(Material.WOODEN_SWORD);
+    private static ItemStack helm1 =    new ItemBuilder(Material.ZOMBIE_HEAD).toItem();
+    private static ItemStack chest1 =   new ItemBuilder(Material.LEATHER_CHESTPLATE).unbreakable().dye(Color.GREEN).toItem();
+    private static ItemStack legs1 =    new ItemBuilder(Material.LEATHER_LEGGINGS).unbreakable().dye(Color.GREEN).toItem();
+    private static ItemStack boots1 =   new ItemBuilder(Material.LEATHER_BOOTS).unbreakable().dye(Color.GREEN).toItem();
 
     @Override
     public void reset() {

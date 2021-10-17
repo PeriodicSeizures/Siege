@@ -1,8 +1,6 @@
 package com.crazicrafter1.siege.menu;
 
-import com.crazicrafter1.siege.util.ItemBuilder;
-import com.crazicrafter1.siege.util.ItemUtil;
-import com.crazicrafter1.siege.util.Util;
+import com.crazicrafter1.crutils.ItemBuilder;
 import com.crazicrafter1.siege.game.team.Team;
 import com.crazicrafter1.siege.game.team.defender.Knight;
 import com.crazicrafter1.siege.game.team.defender.Marksman;
@@ -18,21 +16,21 @@ import java.util.HashMap;
 class KitMenuData {
 
 
-    static ItemStack d1 = ItemBuilder.builder(Material.BOW).name("&b&lMarksman").lore(new String[] {  "&7 - One arrow every &8" + String.format("%.1f", Marksman.arrowDelay/1000.0) + "&7s",
-            "&7 - Chainmail armor"}).toItem();
+    static ItemStack d1 = new ItemBuilder(Material.BOW).name("&b&lMarksman").lore(new String[] {"&7 - One arrow every &8" + String.format("%.1f", Marksman.arrowDelay/1000.0) + "&7s",
+            "&7 - Chainmail armor"}, true).toItem();
 
-    static ItemStack d2 = ItemBuilder.builder(Material.IRON_SWORD).name("&3&lKnight").lore(new String[] {  "&7 - One arrow every &8" + String.format("%.1f", Knight.arrowDelay/1000.0) + "&7s",
+    static ItemStack d2 = new ItemBuilder(Material.IRON_SWORD).name("&3&lKnight").lore(new String[] {  "&7 - One arrow every &8" + String.format("%.1f", Knight.arrowDelay/1000.0) + "&7s",
             "&7 - One barricade every &8" + String.format("%.1f", Knight.fenceDelay/1000.0) + "&7s",
-            "&7 - Iron armor"}).hideFlags(ItemFlag.HIDE_ATTRIBUTES).toItem();
+            "&7 - Iron armor"}, true).hideFlags(ItemFlag.HIDE_ATTRIBUTES).toItem();
 
-    static ItemStack i1 = ItemBuilder.builder(Material.STONE_SWORD).name("&4&lUndead Ghoul").lore(new String[] {  "&7 - Permanent speed",
-            "&7 - Leap ability"}).hideFlags(ItemFlag.HIDE_ATTRIBUTES).toItem();
+    static ItemStack i1 = new ItemBuilder(Material.STONE_SWORD).name("&4&lUndead Ghoul").lore(new String[] {  "&7 - Permanent speed",
+            "&7 - Leap ability"}, true).hideFlags(ItemFlag.HIDE_ATTRIBUTES).toItem();
 
-    static ItemStack i2 = ItemBuilder.builder(Material.ROTTEN_FLESH).name("&c&lZombie").lore(new String[] {  "&7 - Permanent regeneration III",
-            "&7 - Fortification ability"}).toItem();
+    static ItemStack i2 = new ItemBuilder(Material.ROTTEN_FLESH).name("&c&lZombie").lore(new String[] {  "&7 - Permanent regeneration III",
+            "&7 - Fortification ability"}, true).toItem();
 
-    static ItemStack i3 = ItemBuilder.builder(Material.GOLDEN_SWORD).name("&8&lNemesis").lore(new String[] {  "&7 - Permanent regeneration I",
-            "&7 - Vile ability"}).hideFlags(ItemFlag.HIDE_ATTRIBUTES).toItem();
+    static ItemStack i3 = new ItemBuilder(Material.GOLDEN_SWORD).name("&8&lNemesis").lore(new String[] {  "&7 - Permanent regeneration I",
+            "&7 - Vile ability"}, true).hideFlags(ItemFlag.HIDE_ATTRIBUTES).toItem();
 
     static HashMap<Integer, ItemStack> itemBySlot = new HashMap<>(); //new HashMap<>(Arrays.asList(1, 7, 13, 16, 19, 25));
     static HashMap<Team.Kit, ItemStack> itemByKit = new HashMap<>(); //new HashMap<>(Arrays.asList(1, 7, 13, 16, 19, 25));
@@ -84,12 +82,11 @@ class KitMenuData {
         return pitch/h;
     }
 
-    private static ItemStack left = ItemUtil.blankItem(Material.LIGHT_BLUE_STAINED_GLASS_PANE);
-    private static ItemStack mid = ItemUtil.blankItem(Material.LIME_STAINED_GLASS_PANE);
-    private static ItemStack right = ItemUtil.blankItem(Material.RED_STAINED_GLASS_PANE);
+    private static ItemStack left = new ItemBuilder(Material.LIGHT_BLUE_STAINED_GLASS_PANE).name(" ").toItem();
+    private static ItemStack mid = new ItemBuilder(Material.LIME_STAINED_GLASS_PANE).name(" ").toItem();
+    private static ItemStack right = new ItemBuilder(Material.RED_STAINED_GLASS_PANE).name(" ").toItem();
 
     static Inventory getDefaultInventory() {
-
         Inventory inventory = Bukkit.createInventory(null, 27, ChatColor.DARK_GRAY + "Select Kit");
 
         inventory.setContents(items);

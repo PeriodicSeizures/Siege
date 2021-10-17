@@ -91,7 +91,7 @@ public abstract class Team {
     }
 
     public final Player getPlayer() {
-        return Main.getInstance().getServer().getPlayer(uuid);
+        return Main.get().getServer().getPlayer(uuid);
     }
 
     public abstract void reset();

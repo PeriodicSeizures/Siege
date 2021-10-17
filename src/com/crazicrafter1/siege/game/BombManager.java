@@ -64,7 +64,7 @@ public class BombManager {
 
         //int health = king.getHealth();
 
-        File file = Paths.get(Main.getInstance().getDataFolder() + "\\bombs.csv").toFile();
+        File file = Paths.get(Main.get().getDataFolder() + "\\bombs.csv").toFile();
 
         if (file.exists()) file.delete();
 
@@ -85,7 +85,7 @@ public class BombManager {
     public static void load() {
         try {
 
-            File file = Paths.get(Main.getInstance().getDataFolder() + "\\bombs.csv").toFile();
+            File file = Paths.get(Main.get().getDataFolder() + "\\bombs.csv").toFile();
 
             if (file.exists()) {
                 BufferedReader reader = new BufferedReader(new FileReader(file));

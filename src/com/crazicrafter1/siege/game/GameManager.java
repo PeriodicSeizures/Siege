@@ -38,7 +38,7 @@ public class GameManager {
 
     public static State gameState = State.INACTIVE;
 
-    private static Main plugin = Main.getInstance();
+    private static Main plugin = Main.get();
 
     public static void onEnable() {
         //WorldManager.helmsDeep.setPVP(false);

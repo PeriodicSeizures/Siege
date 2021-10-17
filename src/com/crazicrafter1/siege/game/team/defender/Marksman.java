@@ -1,6 +1,6 @@
 package com.crazicrafter1.siege.game.team.defender;
 
-import com.crazicrafter1.siege.util.ItemBuilder;
+import com.crazicrafter1.crutils.ItemBuilder;
 import com.crazicrafter1.siege.util.Util;
 import com.crazicrafter1.siege.game.team.Team;
 import org.bukkit.Material;
@@ -23,12 +23,12 @@ public class Marksman extends Team implements Defender {
         super(uuid, Type.DEFENDER, Kit.MARKSMAN, "", 0);
     }
 
-    private static ItemStack bow =      ItemBuilder.builder(Material.BOW).unbreakable().enchant(Enchantment.ARROW_DAMAGE, 3).enchant(Enchantment.ARROW_KNOCKBACK, 2).toItem();
-    private static ItemStack sword =    ItemBuilder.builder(Material.STONE_SWORD).hideFlags(ItemFlag.HIDE_ATTRIBUTES).fast().unbreakable().enchant(Enchantment.DAMAGE_ALL, 1).toItem();
-    private static ItemStack helm =     ItemBuilder.builder(Material.CHAINMAIL_HELMET).unbreakable().enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1).toItem();
-    private static ItemStack chest =    ItemBuilder.builder(Material.CHAINMAIL_CHESTPLATE).unbreakable().enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1).toItem();
-    private static ItemStack legs =     ItemBuilder.builder(Material.CHAINMAIL_HELMET).unbreakable().enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1).toItem();
-    private static ItemStack boots =    ItemBuilder.builder(Material.CHAINMAIL_BOOTS).unbreakable().enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1).toItem();
+    private static ItemStack bow =      new ItemBuilder(Material.BOW).unbreakable().enchant(Enchantment.ARROW_DAMAGE, 3).enchant(Enchantment.ARROW_KNOCKBACK, 2).toItem();
+    private static ItemStack sword =    new ItemBuilder(Material.STONE_SWORD).hideFlags(ItemFlag.HIDE_ATTRIBUTES).fast().unbreakable().enchant(Enchantment.DAMAGE_ALL, 1).toItem();
+    private static ItemStack helm =     new ItemBuilder(Material.CHAINMAIL_HELMET).unbreakable().enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1).toItem();
+    private static ItemStack chest =    new ItemBuilder(Material.CHAINMAIL_CHESTPLATE).unbreakable().enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1).toItem();
+    private static ItemStack legs =     new ItemBuilder(Material.CHAINMAIL_HELMET).unbreakable().enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1).toItem();
+    private static ItemStack boots =    new ItemBuilder(Material.CHAINMAIL_BOOTS).unbreakable().enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1).toItem();
 
     @Override
     public void reset() {

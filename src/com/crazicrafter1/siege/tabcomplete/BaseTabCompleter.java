@@ -1,19 +1,15 @@
 package com.crazicrafter1.siege.tabcomplete;
 
 import com.crazicrafter1.siege.Main;
-import com.mysql.fabric.xmlrpc.base.Array;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public abstract class BaseTabCompleter implements TabCompleter {
 
-    protected static Main plugin = Main.getInstance();
+    protected static Main plugin = Main.get();
 
     public BaseTabCompleter(String name) {
         plugin.getCommand(name).setTabCompleter(this);

@@ -1,7 +1,5 @@
 package com.crazicrafter1.siege;
 
-import com.connorlinfoot.actionbarapi.ActionBarAPI;
-import com.crazicrafter1.siege.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.*;
@@ -9,7 +7,7 @@ import org.bukkit.scoreboard.*;
 public class ScoreboardAPI {
 
     public static void setSideBar(Player player, String title, String[] messages) {
-        Bukkit.getScheduler().runTask(Main.getInstance(), new Runnable() {
+        Bukkit.getScheduler().runTask(Main.get(), new Runnable() {
             @Override
             public void run() {
                 Scoreboard board = Bukkit.getScoreboardManager().getNewScoreboard();
@@ -21,7 +19,7 @@ public class ScoreboardAPI {
                 StringBuilder spaces = new StringBuilder();
 
                 for(int i=0; i<messages.length; i++){
-                    Score score = null;
+                    Score score;
 
                     spaces.append(" ");
 

@@ -2,15 +2,12 @@ package com.crazicrafter1.siege.game;
 
 import com.crazicrafter1.siege.Main;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.World;
-import org.bukkit.WorldCreator;
-import org.bukkit.entity.Player;
 
 public class WorldManager {
 
     public static World helmsDeep = null;
-    private static Main plugin = Main.getInstance();
+    private static Main plugin = Main.get();
 
     public static void onEnable() {
         helmsDeep = Bukkit.getWorld("helms_deep");

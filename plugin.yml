@@ -1,9 +1,8 @@
 name: Siege
 main: com.crazicrafter1.siege.Main
-description: Siege plugin 1.14.4
 version: 1.0.0
 api-version: 1.13
-depend: [ActionBarAPI]
+depend: [CRUtils, Gapi]
 commands:
   #defender:
   #  usage: /<command> <marksman | knight>

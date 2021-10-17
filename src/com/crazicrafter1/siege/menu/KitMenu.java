@@ -1,12 +1,11 @@
 package com.crazicrafter1.siege.menu;
 
+import com.crazicrafter1.crutils.ItemBuilder;
 import com.crazicrafter1.siege.Main;
 import com.crazicrafter1.siege.game.TeamAssigner;
 import com.crazicrafter1.siege.game.TeamUtils;
 import com.crazicrafter1.siege.game.TempPlayer;
 import com.crazicrafter1.siege.game.team.Team;
-import com.crazicrafter1.siege.util.ItemBuilder;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
@@ -96,7 +95,7 @@ public class KitMenu {
                 public void run() {
                     updateItems();
                 }
-            }.runTaskLater(Main.getInstance(), 1);
+            }.runTaskLater(Main.get(), 1);
         }
     }
 
@@ -150,7 +149,7 @@ public class KitMenu {
 
             // Now glow queued kit
             ItemStack makeGlow = inventory.getItem(slot);
-            inventory.setItem(slot, ItemBuilder.builder(makeGlow).glow().toItem());
+            inventory.setItem(slot, new ItemBuilder(makeGlow).glow(true).toItem());
 
             System.out.println("Slot-Queued : " + slot);
 

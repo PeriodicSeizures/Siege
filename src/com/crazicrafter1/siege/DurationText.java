@@ -1,7 +1,8 @@
 package com.crazicrafter1.siege;
 
-import com.connorlinfoot.actionbarapi.ActionBarAPI;
 import com.crazicrafter1.siege.util.Util;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
@@ -18,8 +19,10 @@ public class DurationText {
 
         s.insert(i, ChatColor.RED);
         s.insert(0, ChatColor.GREEN);
-        ActionBarAPI.sendActionBar(p, text + " " + s.toString() + ChatColor.RESET + " " +
-                String.format("%.01f/%.01f", (current/20.0), (time/20.0)));
+        p.spigot().sendMessage(ChatMessageType.ACTION_BAR,
+                new TextComponent(text + " " + s + ChatColor.RESET + " " + String.format("%.01f/%.01f", (current/20.0), (time/20.0))));
+        //ActionBarAPI.sendActionBar(p, text + " " + s.toString() + ChatColor.RESET + " " +
+        //        String.format("%.01f/%.01f", (current/20.0), (time/20.0)));
 
     }
 

@@ -16,7 +16,7 @@ public class KingManager {
     public static String[] kings; // = new String[];
 
     public static void onEnable() {
-        File file = Paths.get(Main.getInstance().getDataFolder() + "\\kings.csv").toFile();
+        File file = Paths.get(Main.get().getDataFolder() + "\\kings.csv").toFile();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
             kings = reader.readLine().split(",");
@@ -38,7 +38,7 @@ public class KingManager {
         Location loc = king.getLocation();
         //int health = king.getHealth();
 
-        File file = Paths.get(Main.getInstance().getDataFolder() + "\\king.csv").toFile();
+        File file = Paths.get(Main.get().getDataFolder() + "\\king.csv").toFile();
 
         if (file.exists()) file.delete();
 
@@ -56,7 +56,7 @@ public class KingManager {
     private static void load() {
         try {
 
-            File file = Paths.get(Main.getInstance().getDataFolder() + "\\king.csv").toFile();
+            File file = Paths.get(Main.get().getDataFolder() + "\\king.csv").toFile();
 
             if (file.exists()) {
                 BufferedReader reader = new BufferedReader(new FileReader(file));

@@ -1,8 +1,8 @@
 package com.crazicrafter1.siege.game.team.invader;
 
+import com.crazicrafter1.crutils.ItemBuilder;
 import com.crazicrafter1.siege.game.GameManager;
 import com.crazicrafter1.siege.Main;
-import com.crazicrafter1.siege.util.ItemBuilder;
 import com.crazicrafter1.siege.util.Util;
 import com.crazicrafter1.siege.game.team.Team;
 import org.bukkit.Color;
@@ -33,11 +33,11 @@ public class Nemesis extends Team implements Invader {
         super(uuid, Type.INVADER, Kit.NEMESIS, "Vile", 15*20);
     }
 
-    private static ItemStack sword2 =   ItemBuilder.builder(Material.GOLDEN_SWORD).hideFlags(ItemFlag.HIDE_ATTRIBUTES).unbreakable().fast().enchant(Enchantment.DAMAGE_ALL, 3).toItem(); //Util.item(Material.WOOD
-    private static ItemStack helm2 =    ItemBuilder.builder(Material.WITHER_SKELETON_SKULL).toItem();
-    private static ItemStack chest2 =   ItemBuilder.builder(Material.LEATHER_CHESTPLATE).unbreakable().dye(Color.BLACK).toItem();
-    private static ItemStack legs2 =    ItemBuilder.builder(Material.LEATHER_LEGGINGS).unbreakable().dye(Color.BLACK).toItem();
-    private static ItemStack boots2 =   ItemBuilder.builder(Material.LEATHER_BOOTS).unbreakable().dye(Color.BLACK).toItem();
+    private static ItemStack sword2 =   new ItemBuilder(Material.GOLDEN_SWORD).hideFlags(ItemFlag.HIDE_ATTRIBUTES).unbreakable().fast().enchant(Enchantment.DAMAGE_ALL, 3).toItem(); //Util.item(Material.WOOD
+    private static ItemStack helm2 =    new ItemBuilder(Material.WITHER_SKELETON_SKULL).toItem();
+    private static ItemStack chest2 =   new ItemBuilder(Material.LEATHER_CHESTPLATE).unbreakable().dye(Color.BLACK).toItem();
+    private static ItemStack legs2 =    new ItemBuilder(Material.LEATHER_LEGGINGS).unbreakable().dye(Color.BLACK).toItem();
+    private static ItemStack boots2 =   new ItemBuilder(Material.LEATHER_BOOTS).unbreakable().dye(Color.BLACK).toItem();
 
     @Override
     public void reset() {
@@ -57,32 +57,23 @@ public class Nemesis extends Team implements Invader {
 
     @Override
     protected void ability() {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                int count = 0;
-                for (Entity entity : getPlayer().getNearbyEntities(8,8,8)) {
+        int count = 0;
+        for (Entity entity : getPlayer().getNearbyEntities(8,8,8)) {
 
-                    if (entity instanceof Player && GameManager.isDefender(entity.getUniqueId())) {
+            if (entity instanceof Player && GameManager.isDefender(entity.getUniqueId())) {
 
-                        Player other = (Player)entity;
+                Player other = (Player) entity;
 
-                        new BukkitRunnable() {
-                            @Override
-                            public void run() {
-                                other.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, Util.clamp(power, 3, 5)*20, 0), true);
-                                other.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 4 * 20, Util.clamp(power, 0, 5)), true);
-                            }
-                        }.runTask(Main.getInstance());
-                        count++;
-                    }
-                    if (count >= power) {
-                        break;
-                    }
+                other.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, Util.clamp(power, 3, 5) * 20, 0), true);
+                other.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 4 * 20, Util.clamp(power, 0, 5)), true);
 
-                }
+                count++;
             }
-        }.runTaskAsynchronously(Main.getInstance());
+            if (count >= power) {
+                break;
+            }
+        }
+
     }
 
     @Override
@@ -119,7 +110,7 @@ public class Nemesis extends Team implements Invader {
 
                     p.spawnParticle(Particle.SQUID_INK, p.getLocation(), 10);
                 }
-            }.runTaskTimer(Main.getInstance(), 1, 5);
+            }.runTaskTimer(Main.get(), 1, 5);
             power++; // = Util.clamp(power+1, 1, 3);
         }
 

@@ -1,7 +1,7 @@
 package com.crazicrafter1.siege.game.team.invader;
 
+import com.crazicrafter1.crutils.ItemBuilder;
 import com.crazicrafter1.siege.Main;
-import com.crazicrafter1.siege.util.ItemBuilder;
 import com.crazicrafter1.siege.util.Util;
 import com.crazicrafter1.siege.game.team.Team;
 import org.bukkit.Bukkit;
@@ -24,11 +24,11 @@ public class UndeadGhoul extends Team implements Invader {
         super(uuid, Type.INVADER, Kit.UNDEAD_GHOUL, "Leap", 20*7);
     }
 
-    private static ItemStack sword0 =   ItemBuilder.builder(Material.WOODEN_AXE).unbreakable().fast().toItem();
-    private static ItemStack helm0 =    ItemBuilder.builder(Material.SKELETON_SKULL).toItem(); //Util.item(Material.SKELETON_SKULL);
-    private static ItemStack chest0 =   ItemBuilder.builder(Material.LEATHER_CHESTPLATE).unbreakable().dye(110, 110, 110).toItem();
-    private static ItemStack legs0 =    ItemBuilder.builder(Material.LEATHER_LEGGINGS).unbreakable().dye(70, 70, 70).toItem();
-    private static ItemStack boots0 =   ItemBuilder.builder(Material.LEATHER_BOOTS).unbreakable().dye(30, 30, 30).toItem();
+    private static ItemStack sword0 =   new ItemBuilder(Material.WOODEN_AXE).unbreakable().fast().toItem();
+    private static ItemStack helm0 =    new ItemBuilder(Material.SKELETON_SKULL).toItem(); //Util.item(Material.SKELETON_SKULL);
+    private static ItemStack chest0 =   new ItemBuilder(Material.LEATHER_CHESTPLATE).unbreakable().color(110, 110, 110).toItem();
+    private static ItemStack legs0 =    new ItemBuilder(Material.LEATHER_LEGGINGS).unbreakable().color(70, 70, 70).toItem();
+    private static ItemStack boots0 =   new ItemBuilder(Material.LEATHER_BOOTS).unbreakable().color(30, 30, 30).toItem();
 
     @Override
     public void reset() {
@@ -54,7 +54,7 @@ public class UndeadGhoul extends Team implements Invader {
         p.setVelocity(p.getLocation().getDirection().multiply(1.3));
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_BLAZE_SHOOT, 1, 1);
 
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstance(), () -> p.setFallDistance(-100), 1);
+        Bukkit.getScheduler().scheduleSyncDelayedTask(Main.get(), () -> p.setFallDistance(-100), 1);
 
     }
 
