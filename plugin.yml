@@ -1,0 +1,37 @@
+name: Siege
+main: com.crazicrafter1.siege.Main
+description: Siege plugin 1.14.4
+version: 1.0.0
+api-version: 1.13
+depend: [ActionBarAPI]
+commands:
+  #defender:
+  #  usage: /<command> <marksman | knight>
+  #invader:
+  #  usage: /<command> <undead_ghoul | zombie | nemesis>
+  jointeam:
+    usage: /<command> <defender/invader> <kit>
+    permission: siege.admin
+  bomb:
+    usage: /<command> <resetall | add | removeall | remove>
+    permission: siege.admin
+  king:
+    usage: /<command> <set | summon>
+    permission: siege.admin
+  siege:
+    usage: /<command> <reload | game> [start | stop | time] <int> # list | prestart>
+    permission: siege.admin
+  #play:
+  #  usage: /<command>
+  kit:
+    usage: /<command> <kit>
+  spawn:
+    usage: /<command> <add> <defender | invader>
+    permission: siege.admin
+  #glow:
+  #  usage: /<command>
+  #  permission: siege.admin
+
+permissions:
+  siege.admin:
+    default: op
